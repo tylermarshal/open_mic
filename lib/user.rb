@@ -23,11 +23,10 @@ class User
     end
   end
 
-  def learn_routine(list_of_jokes)
-    joke_file = CSV.open list_of_jokes, headers: true, header_converters: :symbol
-    joke_file.each do |row|
+  def learn_routine(joke_file)
+    list_of_jokes = CSV.open joke_file, headers: true, header_converters: :symbol
+    list_of_jokes.each do |row|
       self.jokes << row
     end
   end
-
 end
